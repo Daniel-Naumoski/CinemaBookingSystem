@@ -11,4 +11,4 @@ def home():
 
 @views.route('/date.html')
 def date():
-    return render_template("date.html")
+    return render_template("date.html", user=current_user)
