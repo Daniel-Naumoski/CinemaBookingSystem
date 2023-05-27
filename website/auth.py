@@ -1,15 +1,15 @@
-from flask import Blueprint, render_template, request, flash,redirect,url_for
+from flask import Blueprint, render_template, request, flash, redirect, url_for
 from flask_login import login_user, login_required, logout_user, current_user
-from .models import User 
+from .models import User
 from . import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import LoginManager
 
 
-
 auth = Blueprint('auth', __name__)
 login_manager = LoginManager()
 login_manager.init_app(auth)
+
 
 @auth.route('/logout')
 @login_required
@@ -37,7 +37,6 @@ def login():
     return render_template("login.html", user=current_user)
 
 
-
 @auth.route('/signup.html', methods=['GET', 'POST'])
 def sign_up():
     if request.method == 'POST':
@@ -45,7 +44,7 @@ def sign_up():
         username = request.form.get('username')
         password1 = request.form.get('password')
         confirmpass1 = request.form.get('confirmpass')
-        user= User.query.filter_by(email=email1).first()
+        user = User.query.filter_by(email=email1).first()
         if user:
             flash('This Email Already Exists', category='error')
         elif username.isnumeric():
@@ -53,13 +52,12 @@ def sign_up():
         elif password1 != confirmpass1:
             flash('The Password Is Not The Same', category='Error')
         else:
-            new_user=User(username=username, email=email1,password=generate_password_hash( password1, method='scrypt'))
+            new_user = User(username=username, email=email1, password=generate_password_hash(
+                password1, method='scrypt'))
             db.session.add(new_user)
             db.session.commit()
             login_user(new_user, remember=True)
             flash('Account succesfully created', category='Success')
             return redirect(url_for('views.home'))
-            
-            
 
     return render_template("signup.html", user=current_user)
