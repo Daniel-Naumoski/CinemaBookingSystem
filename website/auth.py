@@ -26,7 +26,6 @@ def login():
         user = User.query.filter_by(email=email).first()
         if user:
             if check_password_hash(user.password, password):
-                flash('Logged in successfully!', category='success')
                 login_user(user, remember=True)
                 return redirect(url_for('views.home'))
             else:
@@ -50,7 +49,7 @@ def sign_up():
         elif username.isnumeric():
             flash('Pleace enter some characters', category='error')
         elif password1 != confirmpass1:
-            flash('The Password Is Not The Same', category='Error')
+            flash('The Password Is Not The Same', category='error')
         else:
             new_user = User(username=username, email=email1, password=generate_password_hash(
                 password1, method='scrypt'))
