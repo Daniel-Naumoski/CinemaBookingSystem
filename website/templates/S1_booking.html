@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JS Booking</title>
+    <link rel="stylesheet" href="static/S1_booking.css">
+    <script async src="static/S1_booking.js"></script>
+  </head>
+  <body>
+    <!-- (A) BOOKING FORM -->
+    <form id="bookForm" onsubmit="return book();">
+      <label>Name</label>
+      <input type="text" name="Name" required>
+
+      <label>Email</label>
+      <input type="email" name="Email" required>
+
+      <label>Date</label>
+      <input type="date" name="Date" required>
+
+      <input type="submit" value="Go!" disabled id="bookGo">
+    </form>
+  </body>
+</html>
