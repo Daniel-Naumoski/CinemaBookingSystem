@@ -87,6 +87,7 @@
                     </div>
                 </div>
             </div>
+            <button id="proceed"><b>Proceed to movie and seat selection</b></button>
         </div>
       </div>
     </div>
@@ -110,6 +111,13 @@
 
     // Call the function on page load
     document.addEventListener("DOMContentLoaded", typeWriter);
+
+
+    document.getElementById('proceed').addEventListener('click', () => {
+  // Change the CSS style back to block
+    window.location.href = 'booking.html';
+});
+
     </script>
 </body>
 </html>
