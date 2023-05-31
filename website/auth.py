@@ -15,9 +15,8 @@ login_manager.init_app(auth)
 @login_required
 def logout():
     logout_user()
-    flash('Logged out successfully!', category='success')
     return redirect(url_for('auth.login'))
-    
+
 
 @auth.route('/login.html', methods=['GET', 'POST'])
 def login():
@@ -27,7 +26,7 @@ def login():
         user = User.query.filter_by(email=email).first()
         if user:
             if check_password_hash(user.password, password):
-                flash('Logged in successfully!', category='success')
+               
                 login_user(user, remember=True)
                 return redirect(url_for('views.home'))
             else:
@@ -46,8 +45,11 @@ def sign_up():
         password1 = request.form.get('password')
         confirmpass1 = request.form.get('confirmpass')
         user = User.query.filter_by(email=email1).first()
+        user1 = User.query.filter_by(username=username).first()
         if user:
             flash('This Email Already Exists', category='error')
+        elif user1:
+            flash('This username has already been used', category='error')
         elif username.isnumeric():
             flash('Pleace enter some characters', category='error')
         elif password1 != confirmpass1:
@@ -58,7 +60,6 @@ def sign_up():
             db.session.add(new_user)
             db.session.commit()
             login_user(new_user, remember=True)
-            flash('Account succesfully created', category='Success')
             return redirect(url_for('views.home'))
 
     return render_template("signup.html", user=current_user)
