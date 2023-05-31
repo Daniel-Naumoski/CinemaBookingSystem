@@ -11,8 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <link rel="stylesheet" href=".\static\css\date.css">
 </head>
-<body style="background-color: #ecf1f8;">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light nav">
+<body>
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light nav">
         <div class="container-fluid">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -41,7 +41,35 @@
             </ul>
           </div>
         </div>
-      </nav>
+      </nav> -->
+      <div class="container-fluid p-0">
+    <input type="checkbox" name="" id="menuBtn">
+    <div class="menu_overlay">
+      <label for="menuBtn">
+        <i class="fas fa-times"></i>
+      </label>
+      <div class="row-custom row">
+        <div class="col-auto">
+            <img class="navbar-brand" src="/static/images/2 (1) (1).png" alt="" style="height: 90px;">
+        </div>
+        <div class="col-auto">
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./date.html">Booking</a></li>
+            <li><a href="./login.html">Log Out</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="landing_page">
+      <div class="menu">
+        <label for="menuBtn">
+          <i class="fas fa-bars"></i>
+        </label>
+      </div>
+    </div>
+  </div>
 
     <div class="wrapper">
         <div class="typing-demo">
@@ -87,7 +115,7 @@
                     </div>
                 </div>
             </div>
-            <button id="proceed"><b>Proceed to movie and seat selection</b></button>
+            <button class="btn-primary py-2" id="proceed"><b>Proceed to movie and seat selection</b></button>
         </div>
       </div>
     </div>
