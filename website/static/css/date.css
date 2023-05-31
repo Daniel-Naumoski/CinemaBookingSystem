@@ -5,7 +5,98 @@ textarea {
     font-size: 14px;
 }
 
+body {
+    height: 100%;
+    background: #ecf1f8;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
+}
 
+html{
+    height: 100%;
+}
+
+.menu_overlay {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    overflow: hidden;
+    color: #fff;
+    background: #13181c;
+    z-index: 100;
+    transform: translateX(110%);
+    transition: transform 0.5s ease;
+  }
+  
+  .menu_overlay .fas {
+    position: absolute;
+    right: 60px;
+    top: 20px;
+    font-size: 2.5rem;
+    transition: all 0.3s ease;
+  }
+  .menu_overlay .fas:hover {
+    color: #6c757d;
+    transform: scale(1.1) rotate(180deg);
+  }
+  
+  .menu_overlay ul {
+    height: 100%;
+    width: 100%;
+    list-style: none;
+    padding: 20px;
+    font-size: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+  }
+  
+  .menu_overlay a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .menu_overlay a:hover {
+    font-size: 4.1rem;
+  }
+  
+  #menuBtn {
+    display: none;
+  }
+  
+  #menuBtn:checked ~ .menu_overlay {
+    transform: translateX(0);
+  }
+
+
+.row-custom{
+    align-items: center;
+    width: 30.1%;
+    margin: auto;
+    padding-top: 13%;
+}
+
+.landing_page {
+  max-height: 100vh;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.fas {
+  font-size: 2rem;
+  color: #3a3a3a;
+}
+
+.fas:hover {
+  color: #6c757d;
+}
 /* Basis */
 
 .btn {
